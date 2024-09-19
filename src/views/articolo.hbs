@@ -1,2 +1,18 @@
-<h1>{{articolo.titolo}}</h1>
-<h3>di {{articolo.autore}}</h3>
+{{#with articolo}}
+<h1>{{titolo}}</h1>
+<h3>di {{autore}}</h3>
+
+<h4>Categorie</h4>
+<ul class="list-group">
+    {{#each categorie}}
+    <li class="list-group-item">{{nome}}</li>
+    {{/each}}
+</ul>
+
+<h4>Tags</h4>
+{{#each tags}}
+<span class="badge rounded-pill text-bg-primary">{{this}}</span>
+{{/each}}
+
+
+{{/with}}

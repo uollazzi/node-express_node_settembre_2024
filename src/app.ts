@@ -48,6 +48,11 @@ app.get("/articolo/:id", (req: Request, res: Response) => {
     const id = req.params["id"];
     const idNumber = Number(id);
 
+    if (isNaN(idNumber)) {
+        res.status(400).send("Id deve essere un numero.");
+        return;
+    }
+
     // qui ci sarà la chiamata al database tipo: db.getPostById(id)
     const articolo = articoli.find(x => x.id == idNumber);
 
@@ -62,6 +67,9 @@ app.get("/articolo/:id", (req: Request, res: Response) => {
     });
 
     // Pattern MVC
+    // Model
+    // View
+    // Controller
 });
 
 app.get("/benvenuto", (req: Request, res: Response) => {
